@@ -3,6 +3,7 @@ import { ALLIED_STORES } from "../data";
 import { AlliedStore, Product } from "../types";
 import { ShoppingBag, Sparkles, CreditCard, X, ShieldCheck, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import HondurasFlag from "./HondurasFlag";
 
 interface AlliedStoresProps {
   onSimulatePurchase: (product: Product, storeName: string) => void;
@@ -224,12 +225,12 @@ export default function AlliedStores({
                 className="bg-white rounded-[32px] w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 flex flex-col text-[#2a1366]"
               >
                 <div className="bg-[#2a1366] text-white p-6 justify-between flex items-center">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#772cfc] flex items-center justify-center font-black italic">
-                      f
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-[#772cfc] flex items-center justify-center font-black italic">
+                        f
+                      </div>
+                      <span className="font-extrabold text-lg tracking-tight flex items-center gap-1">Simulador de Plan Fast Pay <HondurasFlag className="inline-block w-5 h-5 align-middle" /></span>
                     </div>
-                    <span className="font-extrabold text-lg tracking-tight">Simulador de Plan Fast Pay 🇭🇳</span>
-                  </div>
                   <button
                     onClick={() => setCheckoutProduct(null)}
                     className="p-1 rounded-full hover:bg-white/10 transition-colors"

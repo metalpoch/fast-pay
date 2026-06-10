@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles, ShoppingBag } from "lucide-react";
 import { motion } from "motion/react";
 import heroBg from "../assets/hero.avif";
+import HondurasFlag from "./HondurasFlag";
 
 interface HeroProps {
   onOpenSimulator: () => void;
@@ -37,7 +38,7 @@ export default function Hero({ onOpenSimulator, onScrollTo }: HeroProps) {
             id="hero-badge"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#9d57fb]" />
-            Primera aplicación de Buy Now, Pay Later en Honduras 🇭🇳
+            Primera aplicación de Buy Now, Pay Later en Honduras <HondurasFlag className="inline-block w-4 h-4 md:w-5 md:h-5 align-middle" />
           </motion.div>
 
           {/* Slogans */}

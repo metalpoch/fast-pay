@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { MockCreditAccount, SavedCard } from "../types";
 import { motion, AnimatePresence } from "motion/react";
+import HondurasFlag from "./HondurasFlag";
 
 interface RegistrationModalProps {
   isOpen: boolean;
@@ -317,7 +318,7 @@ export default function RegistrationModal({
                   <div>
                     <h3 className="font-extrabold text-lg leading-tight tracking-tight">Registro KYC - Persona Natural</h3>
                     <p className="text-[10px] text-indigo-200 uppercase font-black tracking-wider flex items-center gap-1.5 mt-0.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Verificación de Seguridad Fast Pay 🇭🇳
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Verificación de Seguridad Fast Pay <HondurasFlag className="inline-block w-3 h-3 align-middle" />
                     </p>
                   </div>
                 </div>

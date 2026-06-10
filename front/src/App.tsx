@@ -10,6 +10,7 @@ import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
 import SimulatorDashboard from "./components/SimulatorDashboard";
 import RegistrationModal from "./components/RegistrationModal";
+import HondurasFlag from "./components/HondurasFlag";
 import { MockCreditAccount, Product, ActiveCuota, InstallmentBreakdown, MerchantInvoice } from "./types";
 import { ShieldCheck, Sparkles, X, CheckSquare, Smartphone, HelpCircle, FileText, AlertTriangle, UserPlus, Store, ChevronUp, Layers } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -783,10 +784,10 @@ export default function App() {
           {/* Pulse glow background effect */}
           <span className="absolute -inset-0.5 bg-gradient-to-r from-[#772cfc] to-[#9d57fb] rounded-full blur-xs opacity-40 group-hover:opacity-75 transition-opacity" />
           
-          <div className="relative z-10 flex items-center gap-2 font-bold uppercase text-[10px] tracking-wider">
-            <UserPlus className="w-4 h-4 text-amber-300 animate-bounce" />
-            <span>Registrarme con Fast Pay (KYC) 🇭🇳</span>
-          </div>
+            <div className="relative z-10 flex items-center gap-2 font-bold uppercase text-[10px] tracking-wider">
+              <UserPlus className="w-4 h-4 text-amber-300 animate-bounce" />
+              <span>Registrarme con Fast Pay (KYC) <HondurasFlag className="inline-block w-4 h-4 align-middle" /></span>
+            </div>
         </button>
       </div>
 

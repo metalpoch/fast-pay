@@ -1,5 +1,6 @@
 import React from "react";
 import { Smartphone, QrCode, Apple, Play } from "lucide-react";
+import HondurasFlag from "./HondurasFlag";
 
 export default function AppDownload() {
   return (
@@ -19,7 +20,7 @@ export default function AppDownload() {
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#2a1366] leading-tight font-sans">
               Lleva Fast Pay en <br className="hidden md:block" />
-              tu Bolsillo 🇭🇳
+              tu Bolsillo <HondurasFlag className="inline-block w-5 h-5 align-middle" />
             </h2>
             <p className="text-[#484551] text-base leading-relaxed max-w-xl font-medium">
               Realiza compras en establecimientos físicos escaneando el código QR de caja, monitorea tu límite de crédito en tiempo real, activa tus alertas y paga tus cuotas sin fricciones gracias a nuestra futura aplicación nativa disponible pronto para iOS y Android.

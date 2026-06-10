@@ -73,7 +73,6 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
               <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Compañía</h4>
               <ul className="space-y-2 text-xs">
                 <li><a href="#about" className="hover:text-[#772cfc] transition-colors font-semibold">Nosotros</a></li>
-                <li><a href="#press" className="hover:text-[#772cfc] transition-colors font-semibold">Fast Pay Global</a></li>
               </ul>
             </div>
 

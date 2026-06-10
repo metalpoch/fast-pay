@@ -12,30 +12,23 @@ export default function HondurasFlag({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 70"
+      viewBox="0 0 72 36"
       width={width}
       height={height}
       className={className}
       role="img"
       aria-label="Bandera de Honduras"
+      fill="#0d3b99"
     >
-      <defs>
-        <linearGradient id="blueStripe" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0051BA" />
-          <stop offset="100%" stopColor="#003D8F" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="70" fill="#FFFFFF" />
-      <rect width="100" height="23.33" fill="url(#blueStripe)" />
-      <rect y="46.67" width="100" height="23.33" fill="url(#blueStripe)" />
-      
-      <g fill="#0051BA">
-        <circle cx="30" cy="35" r="4.5" />
-        <circle cx="70" cy="35" r="4.5" />
-        <circle cx="50" cy="18.5" r="4.5" />
-        <circle cx="50" cy="51.5" r="4.5" />
-        <circle cx="50" cy="35" r="4.5" />
+      <title>Bandera de Honduras</title>
+      <path fill="#fff" d="M0 0h72v36H0z" />
+      <path d="M0 0h72v12H0zm0 24h72v12H0z" />
+      <g id="g">
+        <path id="s" d="M26 13l1.1756 3.618-3.0777-2.236h3.8042l-3.0777 2.236z" />
+        <use href="#s" y="6" />
       </g>
+      <use href="#s" x="10" y="3" />
+      <use href="#g" x="20" />
     </svg>
   );
 }

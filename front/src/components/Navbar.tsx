@@ -118,17 +118,25 @@ export default function Navbar({
             id="mobile-nav-drawer"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              {menuItems.map((item) => (
-                <button
+              {menuItems.map((item, index) => (
+                <motion.button
                   key={item.id}
                   onClick={() => handleMenuClick(item.id)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="text-left py-2.5 text-[#2a1366] font-bold text-base border-b border-[#F5F5F7]"
                   id={`mobile-nav-item-${item.id}`}
                 >
                   {item.label}
-                </button>
+                </motion.button>
               ))}
-              <div className="pt-2 flex flex-col gap-3">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: menuItems.length * 0.05 + 0.1 }}
+                className="pt-2 flex flex-col gap-3"
+              >
                 <button
                   onClick={() => {
                     setIsOpen(false);
@@ -140,7 +148,7 @@ export default function Navbar({
                   <Smartphone className="w-5 h-5" />
                   Descargar App
                 </button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

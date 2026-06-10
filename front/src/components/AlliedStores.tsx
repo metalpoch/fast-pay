@@ -70,7 +70,7 @@ export default function AlliedStores({
     // Down payment
     schedules.push({
       id: "down-pay",
-      label: `Hoy (${downPaymentPercent}% Enganche)`,
+      label: `Hoy (${downPaymentPercent}% Inicial)`,
       dateLabel: "Desembolso Inmediato",
       amount: downPaymentValue,
       isDownPayment: true
@@ -260,7 +260,7 @@ export default function AlliedStores({
                 <div className="p-6 text-left flex-1 overflow-y-auto space-y-4">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#772cfc] bg-[#772cfc]/5 border border-[#772cfc]/10 px-3 py-1.5 rounded-full w-fit">
                     <Sparkles className="w-3.5 h-3.5" />
-                    Fórmula oficial: {plan.downPaymentPercent}% de Enganche + {plan.installmentCount} Cuotas {plan.cycle}s
+                    Fórmula oficial: {plan.downPaymentPercent}% Inicial + {plan.installmentCount} Cuotas {plan.cycle}s
                   </div>
 
                   {/* Amortization timeline list */}
@@ -298,7 +298,7 @@ export default function AlliedStores({
                     <div>
                       <p className="text-xs font-extrabold">¿Cómo comprarás en {checkoutProduct.store.name}?</p>
                       <p className="text-[10.5px] leading-relaxed mt-0.5 font-medium">
-                        Adquiere tu producto pagando solo el enganche de <strong>Lps. {plan.downPaymentValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong> al instante. Al estar en la tienda física de tu elección o sitio web aliado, abres la App de Fast Pay, escaneas el código QR en caja, ¡y listo! El comercio recibe el pago completo de inmediato.
+                        Adquiere tu producto pagando solo la inicial de <strong>Lps. {plan.downPaymentValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong> al instante. Al estar en la tienda física de tu elección o sitio web aliado, abres la App de Fast Pay, escaneas el código QR en caja, ¡y listo! El comercio recibe el pago completo de inmediato.
                       </p>
                     </div>
                   </div>

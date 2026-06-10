@@ -98,14 +98,6 @@ export default function Navbar({
         {/* Mobile Menu Icon */}
         <div className="flex md:hidden items-center gap-2" id="mobile-menu-trigger">
           <button
-            onClick={() => onScrollTo("app-download")}
-            className="p-2 border border-[#772cfc]/20 text-[#772cfc] bg-[#772cfc]/5 rounded-full text-xs cursor-pointer"
-            id="btn-nav-download-mobile-icon"
-            title="Descargar App"
-          >
-            <Smartphone className="w-4 h-4" />
-          </button>
-          <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-[#2a1366] hover:bg-[#F5F5F7] rounded-lg transition-colors cursor-pointer"
             id="btn-burger"

@@ -49,7 +49,7 @@ export default function CreditCalculator({ onQuickSimulate, availableLimit }: Cr
   const getDueDates = () => {
     const dates = [];
     // Day 0: Down payment
-    dates.push({ label: "Hoy (Enganche)", desc: "Pago inicial", amount: downPaymentValue });
+    dates.push({ label: "Hoy (Inicial)", desc: "Pago inicial", amount: downPaymentValue });
 
     for (let i = 1; i <= installmentCount; i++) {
       dates.push({
@@ -95,8 +95,8 @@ export default function CreditCalculator({ onQuickSimulate, availableLimit }: Cr
                   <AlertCircle className="w-5 h-5" />
                 </div>
                 <div className="text-left font-sans">
-                  <h4 className="text-sm font-bold text-[#2a1366]">Monto Inicial (Enganche)</h4>
-                  <p className="text-xs text-[#485551]">Se paga un enganche de 10%, 20% o 30% según el rango de precio para respaldar tu compra.</p>
+                  <h4 className="text-sm font-bold text-[#2a1366]">Monto Inicial</h4>
+                  <p className="text-xs text-[#485551]">Se paga una inicial del 10%, 20% o 30% según el rango de precio para respaldar tu compra.</p>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function CreditCalculator({ onQuickSimulate, availableLimit }: Cr
                   <p className="text-[10px] text-[#484551] font-medium">Fijas cada {cycleDays} días</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-[#484551] font-bold uppercase tracking-wider">Enganche Hoy</p>
+                  <p className="text-[10px] text-[#484551] font-bold uppercase tracking-wider">Inicial Hoy</p>
                   <p className="text-2xl font-black text-[#2a1366]">Lps. {downPaymentValue.toFixed(2)}</p>
                   <p className="text-[10px] text-emerald-600 font-bold">Saldo total financiado: Lps. {remainingValue.toFixed(2)}</p>
                 </div>

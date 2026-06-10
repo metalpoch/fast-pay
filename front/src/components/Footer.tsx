@@ -83,7 +83,7 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
 
         {/* Separator line */}
         <div className="border-t border-gray-150 pt-8.5 mt-8.5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-[#484551]">
-          <p>© 2026 Fast Pay. Tegucigalpa, Honduras. Todos los derechos reservados. Con el apoyo tecnológico de Freekee Labs.</p>
+          <p>© 2026 Fast Pay. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <span className="flex items-center gap-1"><Globe className="w-3.5 h-3.5 text-[#772cfc]" /> Español (Honduras)</span>
           </div>

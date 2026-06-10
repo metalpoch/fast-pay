@@ -178,7 +178,7 @@ export default function App() {
 
     // Amortization schedule starting with down payment processed
     const breakdown: InstallmentBreakdown[] = [
-      { installmentNumber: 1, amount: downPaymentValue, dueDate: "Hoy (Enganche Pagado)", isPaid: true }
+      { installmentNumber: 1, amount: downPaymentValue, dueDate: "Hoy (Pago Inicial)", isPaid: true }
     ];
 
     for (let i = 1; i <= installmentCount; i++) {
@@ -229,7 +229,7 @@ export default function App() {
 
     triggerNotification(
       "Compra Exitosa HN",
-      `Se debitó la cuota inicial de enganche de Lps. ${downPaymentValue.toFixed(2)} por tu compra de ${product.name} en ${storeName}. Mantenimiento: Lps. 0.00.`,
+      `Se debitó el pago inicial de Lps. ${downPaymentValue.toFixed(2)} por tu compra de ${product.name} en ${storeName}. Mantenimiento: Lps. 0.00.`,
       "success"
     );
   };
@@ -261,7 +261,7 @@ export default function App() {
     const cycleDays = amount <= 1000 ? 14 : 7;
 
     const breakdown: InstallmentBreakdown[] = [
-      { installmentNumber: 1, amount: downPaymentValue, dueDate: "Hoy (Enganche Pagado)", isPaid: true }
+      { installmentNumber: 1, amount: downPaymentValue, dueDate: "Hoy (Pago Inicial)", isPaid: true }
     ];
 
     for (let i = 1; i <= installmentsCount; i++) {
@@ -486,7 +486,7 @@ export default function App() {
 
     // build breakdown
     const insts: InstallmentBreakdown[] = [
-      { installmentNumber: 1, amount: downValue, dueDate: "Hoy (Enganche Pagado)", isPaid: true }
+      { installmentNumber: 1, amount: downValue, dueDate: "Hoy (Pago Inicial)", isPaid: true }
     ];
     for (let i = 1; i <= pendingInvoice.installmentsCount; i++) {
       insts.push({
@@ -686,7 +686,7 @@ export default function App() {
             
             <div className="bg-white/5 rounded-xl p-3 text-[10px] space-y-1">
               <p className="font-extrabold text-indigo-300">PLAN ACORDADO EN TIENDA:</p>
-              <p>Monto de Enganche Hoy: <strong className="text-white">Lps. {(pendingInvoice.total * (pendingInvoice.downPaymentPercent / 100)).toFixed(2)}</strong> ({pendingInvoice.downPaymentPercent}%)</p>
+              <p>Monto del Pago Inicial: <strong className="text-white">Lps. {(pendingInvoice.total * (pendingInvoice.downPaymentPercent / 100)).toFixed(2)}</strong> ({pendingInvoice.downPaymentPercent}%)</p>
               <p>Remanente: <strong className="text-white">{pendingInvoice.installmentsCount} pagos quincenales</strong> del saldo restante.</p>
             </div>
 
@@ -695,7 +695,7 @@ export default function App() {
                 onClick={handlePayPendingInvoice}
                 className="flex-1 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl shadow cursor-pointer transition-colors text-center"
               >
-                ✓ Aceptar y Pagar Enganche
+                ✓ Aceptar y Pagar la Inicial
               </button>
               <button
                 onClick={() => setPendingInvoice(null)}

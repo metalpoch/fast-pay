@@ -156,7 +156,7 @@ export default function AppDownload() {
                   <div className="bg-white rounded-xl p-2.5 border border-gray-100 flex justify-between items-center opacity-85">
                     <div>
                       <p className="text-[9px] font-black text-[#2a1366]">Supermercado Colonia</p>
-                      <p className="text-[7.5px] text-gray-400">Enganche pagado hoy</p>
+                      <p className="text-[7.5px] text-gray-400">Inicial pagada hoy</p>
                     </div>
                     <div className="text-right">
                       <p className="text-[9px] font-black text-emerald-600">Lps. 240.00</p>

@@ -18,8 +18,8 @@ export default function HowItWorks() {
     {
       num: "03",
       icon: <CheckSquare className="w-8 h-8 text-[#772cfc]" />,
-      title: "Paga tu Enganche y Disfruta",
-      description: "Paga tu primer enganche (10%, 20% o 30%) con tu tarjeta de débito y liquida el resto semanal o quincenalmente."
+      title: "Paga tu Inicial y Disfruta",
+      description: "Paga tu primera inicial (10%, 20% o 30%) con tu tarjeta de débito y liquida el resto semanal o quincenalmente."
     }
   ];
 

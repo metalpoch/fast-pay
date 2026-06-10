@@ -501,15 +501,15 @@ export default function SimulatorDashboard({
                             </div>
 
                             <div>
-                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Porcentaje de Enganche</label>
+                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Porcentaje Inicial</label>
                               <select 
                                 value={invDownPaymentPercent} 
                                 onChange={(e) => setInvDownPaymentPercent(parseInt(e.target.value))}
                                 className="w-full p-2 border border-gray-200 rounded-lg text-xs bg-white"
                               >
-                                <option value={10}>10% Enganche</option>
-                                <option value={20}>20% Enganche</option>
-                                <option value={30}>30% Enganche</option>
+                                <option value={10}>10% Inicial</option>
+                                <option value={20}>20% Inicial</option>
+                                <option value={30}>30% Inicial</option>
                               </select>
                             </div>
                           </div>

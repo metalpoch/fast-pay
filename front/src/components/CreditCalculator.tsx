@@ -142,7 +142,7 @@ export default function CreditCalculator({ onQuickSimulate, availableLimit }: Cr
                 <p className="font-bold uppercase tracking-wider text-[10px] text-[#772cfc]">Fórmula del Rango de Precios (Plan Oficial):</p>
                 <div className="grid grid-cols-2 gap-2 text-xs font-medium">
                   <div>
-                    <span className="text-[#484551] block text-[10px]">DOWN PAYMENT (ENGANCHE)</span>
+                    <span className="text-[#484551] block text-[10px]">INICIAL</span>
                     <span className="font-extrabold text-sm">{downPaymentPercent}% (Lps. {downPaymentValue.toFixed(2)})</span>
                   </div>
                   <div>

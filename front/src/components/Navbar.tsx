@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Smartphone, Sparkles, Store, User } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import logo from "../assets/logo.png";
 
 interface NavbarProps {
   onOpenSimulator: () => void;
@@ -17,7 +18,6 @@ export default function Navbar({
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,26 +56,12 @@ export default function Navbar({
           id="brand-logo"
         >
           <div className="w-10 h-10 transition-transform group-hover:scale-105 flex items-center justify-center">
-            {!logoError ? (
-              <img
-                src="/logo.png"
-                alt="Fast Pay Logo"
-                className="w-10 h-10 object-contain rounded-xl"
-                onError={() => setLogoError(true)}
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <svg viewBox="0 0 100 100" className="w-10 h-10 select-none text-[#772cfc]">
-                <path
-                  d="M20,30 C35,18 75,15 85,10 C80,25 65,45 35,48 C25,49 18,40 20,30 Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M10,65 C25,53 65,50 75,45 C70,60 55,80 25,83 C15,84 8,75 10,65 Z"
-                  fill="currentColor"
-                />
-              </svg>
-            )}
+            <img
+              src={logo}
+              alt="Fast Pay Logo"
+              className="w-10 h-10 object-contain rounded-xl"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <span className="text-2xl font-black tracking-tight text-[#2a1366] select-none font-sans">
             fast<span className="text-[#772cfc]">pay</span>

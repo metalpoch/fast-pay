@@ -1,23 +1,26 @@
 import { ShieldCheck, Sparkles, AlertCircle } from "lucide-react";
 import { motion } from "motion/react";
+import img1 from "../assets/img1.avif";
+import img2 from "../assets/img2.avif";
+import img3 from "../assets/img3.avif";
 
 export default function Features() {
   const cards = [
     {
       id: "feature-1",
-      image: "https://images.unsplash.com/photo-1573855619003-97b4799dcd8b?auto=format&fit=crop&q=80&w=600",
+      image: img1,
       title: "Obtén todo lo que necesitas ya.",
       description: "Todo lo que buscas, donde sea que estés, en línea o en tienda física de forma instantánea."
     },
     {
       id: "feature-2",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600",
+      image: img2,
       title: "Paga en cuotas",
       description: "Paga en 2 a 8 cuotas sin intereses o elige un plan mensual que se ajuste a tu presupuesto real."
     },
     {
       id: "feature-3",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+      image: img3,
       title: "Paga a tiempo y evita recargos.",
       description: "Estamos aquí para ayudarte. Te notificaremos sobre tus próximos pagos por WhatsApp o SMS para evitar cargos."
     }

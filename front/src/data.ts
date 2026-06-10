@@ -1,4 +1,16 @@
 import { AlliedStore } from "./types";
+import store1 from "../assets/store1.avif";
+import store2 from "../assets/store2.avif";
+import store3 from "../assets/store3.avif";
+import store4 from "../assets/store4.avif";
+import store5 from "../assets/store5.avif";
+import store6 from "../assets/store6.avif";
+import store7 from "../assets/store7.avif";
+import store8 from "../assets/store8.avif";
+import store9 from "../assets/store9.avif";
+import store10 from "../assets/store10.avif";
+import store11 from "../assets/store11.avif";
+import store12 from "../assets/store12.avif";
 
 export const ALLIED_STORES: AlliedStore[] = [
   {
@@ -12,21 +24,21 @@ export const ALLIED_STORES: AlliedStore[] = [
         id: "fresh-01",
         name: "Super Canasta Familiar Premium",
         price: 850.00,
-        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
+        image: store1,
         category: "Supermercados"
       },
       {
         id: "fresh-02",
         name: "Café Orgánico de Especialidad Copán 1KG",
         price: 240.00,
-        image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=400",
+        image: store2,
         category: "Supermercados"
       },
       {
         id: "fresh-03",
         name: "Combo de Desayuno Familiar Saludable",
         price: 340.00,
-        image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400",
+        image: store3,
         category: "Supermercados"
       }
     ],
@@ -45,21 +57,21 @@ export const ALLIED_STORES: AlliedStore[] = [
         id: "urban-01",
         name: "Chaqueta Bomber Americana Minimalista",
         price: 1200.00,
-        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=400",
+        image: store4,
         category: "Moda & Estilo"
       },
       {
         id: "urban-02",
         name: "Zapatillas Casuales Hyper-Walk",
         price: 2400.00,
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=400",
+        image: store5,
         category: "Moda & Estilo"
       },
       {
         id: "urban-03",
         name: "Mochila Impermeable Urban Pack",
         price: 550.00,
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400",
+        image: store6,
         category: "Moda & Estilo"
       }
     ],
@@ -78,21 +90,21 @@ export const ALLIED_STORES: AlliedStore[] = [
         id: "tech-01",
         name: "Audífonos Inalámbricos Pro-Sound ANC",
         price: 5100.00,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400",
+        image: store7,
         category: "Tecnología"
       },
       {
         id: "tech-02",
         name: "Reloj Inteligente Fit Tracker Plus",
         price: 3600.00,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=400",
+        image: store8,
         category: "Tecnología"
       },
       {
         id: "tech-03",
         name: "Teclado Mecánico Retro Slim",
         price: 1900.00,
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=400",
+        image: store9,
         category: "Tecnología"
       }
     ],
@@ -111,21 +123,21 @@ export const ALLIED_STORES: AlliedStore[] = [
         id: "hogar-01",
         name: "Lámpara de Escritorio LED Inteligente",
         price: 1150.00,
-        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=400",
+        image: store10,
         category: "Hogar & Jardín"
       },
       {
         id: "hogar-02",
         name: "Macetero de Cerámica Artesanal Zen",
         price: 490.00,
-        image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&q=80&w=400",
+        image: store11,
         category: "Hogar & Jardín"
       },
       {
         id: "hogar-03",
         name: "Juego de Sábanas de Algodón Egipcio",
         price: 1800.00,
-        image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=400",
+        image: store12,
         category: "Hogar & Jardín"
       }
     ],

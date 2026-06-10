@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { MockCreditAccount, MerchantInvoice } from "../types";
 import { motion, AnimatePresence } from "motion/react";
+import logo from "../assets/logo.png";
 
 interface SimulatorDashboardProps {
   creditAccount: MockCreditAccount;
@@ -47,7 +48,6 @@ export default function SimulatorDashboard({
   const [merCategory, setMerCategory] = useState(creditAccount.merchantCategory || "Moda & Estilo");
   const [merBank, setMerBank] = useState(creditAccount.merchantBank || "Banco Atlántida");
   const [merBankAccount, setMerBankAccount] = useState(creditAccount.merchantBankAccount || "1102030456");
-  const [logoError, setLogoError] = useState(false);
 
   // High-fidelity business plan fields: Viewpoint del Comercio
   const [merGerenteNombre, setMerGerenteNombre] = useState("Santiago Espinal");
@@ -149,26 +149,12 @@ export default function SimulatorDashboard({
             <div className="p-6 border-b border-[#F5F5F7] flex items-center justify-between bg-[#2a1366] text-white">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 transition-transform hover:rotate-3 flex items-center justify-center">
-                  {!logoError ? (
-                    <img
-                      src="/logo.png"
-                      alt="Fast Pay Logo"
-                      className="w-10 h-10 object-contain rounded-xl"
-                      onError={() => setLogoError(true)}
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <svg viewBox="0 0 100 100" className="w-10 h-10 select-none text-[#772cfc]">
-                      <path
-                        d="M20,30 C35,18 75,15 85,10 C80,25 65,45 35,48 C25,49 18,40 20,30 Z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M10,65 C25,53 65,50 75,45 C70,60 55,80 25,83 C15,84 8,75 10,65 Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  )}
+                  <img
+                    src={logo}
+                    alt="Fast Pay Logo"
+                    className="w-10 h-10 object-contain rounded-xl"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="text-left font-sans">
                   <h3 className="font-extrabold text-base leading-tight">Portal de Comercios</h3>

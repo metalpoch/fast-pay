@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Smartphone, Mail, PhoneCall, Globe } from "lucide-react";
+import logo from "../assets/logo.png";
 
 interface FooterProps {
   onScrollTo: (sectionId: string) => void;
@@ -7,8 +8,6 @@ interface FooterProps {
 }
 
 export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
-  const [logoError, setLogoError] = useState(false);
-
   return (
     <footer className="bg-white border-t border-gray-150 pt-16 pb-12 text-left font-sans text-sm text-[#484551]">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10">
@@ -23,26 +22,12 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
               className="flex items-center gap-3 cursor-pointer group w-fit"
             >
               <div className="w-8 h-8 transition-transform group-hover:scale-105 flex items-center justify-center">
-                {!logoError ? (
-                  <img
-                    src="/logo.png"
-                    alt="Fast Pay Logo"
-                    className="w-8 h-8 object-contain rounded-lg"
-                    onError={() => setLogoError(true)}
-                    referrerPolicy="no-referrer"
-                  />
-                ) : (
-                  <svg viewBox="0 0 100 100" className="w-8 h-8 select-none text-[#772cfc]">
-                    <path
-                      d="M20,30 C35,18 75,15 85,10 C80,25 65,45 35,48 C25,49 18,40 20,30 Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M10,65 C25,53 65,50 75,45 C70,60 55,80 25,83 C15,84 8,75 10,65 Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                )}
+                <img
+                  src={logo}
+                  alt="Fast Pay Logo"
+                  className="w-8 h-8 object-contain rounded-lg"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span className="text-xl font-black tracking-tight text-[#2a1366]">
                 fast<span className="text-[#772cfc]">pay</span>

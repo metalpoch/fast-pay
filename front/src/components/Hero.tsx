@@ -1,5 +1,6 @@
 import { ArrowRight, Sparkles, ShoppingBag } from "lucide-react";
 import { motion } from "motion/react";
+import heroBg from "../assets/hero.avif";
 
 interface HeroProps {
   onOpenSimulator: () => void;
@@ -16,7 +17,7 @@ export default function Hero({ onOpenSimulator, onScrollTo }: HeroProps) {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center select-none"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1600')`,
+          backgroundImage: `url(${heroBg})`,
         }}
         id="hero-bg-img"
       >

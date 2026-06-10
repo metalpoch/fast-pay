@@ -1,0 +1,6 @@
+{
+  "name": "Fast Pay",
+  "description": "Una aplicación fintech premium de financiamiento instantáneo BNPL (Compra ahora y paga después) sin intereses con un simulador interactivo.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

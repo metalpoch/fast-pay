@@ -805,18 +805,10 @@ export default function App() {
       {/* Drawer de Registro de Comercios Aliados */}
       <MerchantRegistrationDrawer
         creditAccount={account}
-        onPayInstallment={handlePayInstallment}
-        onIncreaseLimit={handleIncreaseLimit}
         onResetAccount={handleResetAccount}
-        onRegisterUser={handleRegisterUser}
         onUpdateMerchantState={handleUpdateMerchantState}
-        onSimulateLatePayment={handleSimulateLatePayment}
-        onPayInvoice={handlePayPendingInvoice}
-        onToggleAutopay={handleToggleAutopay}
         isOpen={isSimulatorOpen}
         onClose={() => setIsSimulatorOpen(false)}
-        activeTab={simulatorTab}
-        onTabChange={setSimulatorTab}
       />
 
     </div>

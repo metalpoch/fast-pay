@@ -9,7 +9,7 @@ import PartnerSection from "./components/PartnerSection";
 import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
 import MerchantRegistrationDrawer from "./components/MerchantRegistrationDrawer";
-import RegistrationModal from "./components/RegistrationModal";
+import KYCRegistrationDrawer from "./components/KYCRegistrationDrawer";
 import HondurasFlag from "./components/HondurasFlag";
 import { MockCreditAccount, Product, ActiveCuota, InstallmentBreakdown, MerchantInvoice } from "./types";
 import { ShieldCheck, Sparkles, X, CheckSquare, Smartphone, HelpCircle, FileText, AlertTriangle, UserPlus, Store, ChevronUp, Layers } from "lucide-react";
@@ -792,7 +792,7 @@ export default function App() {
       </div>
 
       {/* RENDER DYNAMIC FULL-FIDELITY REGISTRATION MODAL */}
-      <RegistrationModal
+      <KYCRegistrationDrawer
         isOpen={isRegistrationModalOpen}
         onClose={() => setIsRegistrationModalOpen(false)}
         initialTab={registrationModalInitialTab}

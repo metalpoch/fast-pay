@@ -8,7 +8,7 @@ import { MockCreditAccount, SavedCard } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import HondurasFlag from "./HondurasFlag";
 
-interface RegistrationModalProps {
+interface KYCRegistrationDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   initialTab?: "user" | "merchant";
@@ -18,13 +18,13 @@ interface RegistrationModalProps {
   triggerNotification: (title: string, message: string, type?: "success" | "info" | "bonus") => void;
 }
 
-export default function RegistrationModal({
+export default function KYCRegistrationDrawer({
   isOpen,
   onClose,
   creditAccount,
   onRegisterUser,
   triggerNotification
-}: RegistrationModalProps) {
+}: KYCRegistrationDrawerProps) {
   // USER FORM STATE
   const [usrNombre, setUsrNombre] = useState(creditAccount.userName || "");
   const [usrApellido, setUsrApellido] = useState(creditAccount.userLastName || "");

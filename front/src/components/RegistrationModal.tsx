@@ -295,15 +295,16 @@ export default function RegistrationModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md font-sans">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-xs font-sans">
           {/* Dismiss strictly on request */}
           <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
 
           <motion.div
-            initial={{ scale: 0.95, opacity: 0, y: 15 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.95, opacity: 0, y: 15 }}
-            className="bg-[#faf9fc] text-[#2a1366] w-full max-w-xl h-[92vh] overflow-hidden rounded-[32px] shadow-2xl flex flex-col z-10 border border-[#F5F5F7] relative"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.35 }}
+            className="relative w-full max-w-lg bg-[#faf9fc] h-full shadow-2xl flex flex-col z-10 border-l border-[#F5F5F7]"
             id="modal-kyc-content"
           >
             {/* Header top background */}

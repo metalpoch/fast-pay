@@ -620,7 +620,7 @@ export default function App() {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.9 }}
-            className={`fixed top-24 right-4 md:right-10 z-[60] p-4 rounded-2xl shadow-xl border w-full max-w-sm flex items-start gap-3 backdrop-blur-sm ${
+            className={`fixed top-24 left-1/2 -translate-x-1/2 z-[60] p-4 rounded-2xl shadow-xl border w-full max-w-sm flex items-start gap-3 backdrop-blur-sm ${
               activeNotification.type === "success"
                 ? "bg-white/95 border-emerald-100 text-[#2a1366]"
                 : activeNotification.type === "bonus"

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { 
-  X, ShieldCheck, Sparkles, AlertCircle, RefreshCw, Smartphone, 
-  Laptop, Info, PlusCircle, 
-  DollarSign, FileText, Trash2, Send
+  X, ShieldCheck, RefreshCw, Laptop, DollarSign, Sparkles
 } from "lucide-react";
-import { MockCreditAccount, MerchantInvoice } from "../types";
+import { MockCreditAccount } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../assets/logo.png";
 
@@ -16,8 +14,6 @@ interface MerchantRegistrationDrawerProps {
   onRegisterUser: (fields: Partial<MockCreditAccount>) => void;
   onUpdateMerchantState: (fields: Partial<MockCreditAccount>) => void;
   onSimulateLatePayment: (cuotaId: string) => void;
-  onAddMerchantProduct: (productName: string, price: number, description: string) => void;
-  onCreateInvoice: (invoice: MerchantInvoice) => void;
   onPayInvoice: (invoiceId: string) => void;
   onToggleAutopay: (enabled: boolean) => void;
   isOpen: boolean;
@@ -30,8 +26,6 @@ export default function MerchantRegistrationDrawer({
   creditAccount,
   onResetAccount,
   onUpdateMerchantState,
-  onAddMerchantProduct,
-  onCreateInvoice,
   isOpen,
   onClose,
   activeTab: controlledActiveTab,
@@ -58,18 +52,6 @@ export default function MerchantRegistrationDrawer({
   const [merSocials, setMerSocials] = useState("@mitiendamovil_hn");
   const [merBankAccountHolder, setMerBankAccountHolder] = useState("Santiago Espinal / Mi Tienda");
 
-  // New product form local state
-  const [newProdName, setNewProdName] = useState("");
-  const [newProdPrice, setNewProdPrice] = useState<number>(850);
-  const [newProdDesc, setNewProdDesc] = useState("");
-
-  // In-shop Invoice manual creator state
-  const [invNumber, setInvNumber] = useState("FAC-2026-001");
-  const [invDesc, setInvDesc] = useState("Compra de Electrodoméstico Directo");
-  const [invTotal, setInvTotal] = useState<number>(3500);
-  const [invInstallments, setInvInstallments] = useState(4);
-  const [invDownPaymentPercent, setInvDownPaymentPercent] = useState(20);
-
   // Synchronize internal state on account update
   useEffect(() => {
     setMerStoreName(creditAccount.merchantStoreName || "Mi Tienda Móvil");
@@ -89,32 +71,6 @@ export default function MerchantRegistrationDrawer({
       merchantBankAccount: merBankAccount,
       isMerchantModeActive: true
     });
-  };
-
-  const handleAddProductSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newProdName || newProdPrice <= 0) return;
-    onAddMerchantProduct(newProdName, newProdPrice, newProdDesc);
-    setNewProdName("");
-    setNewProdDesc("");
-  };
-
-  const handleCreateInvoiceSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (invTotal <= 0) return;
-    onCreateInvoice({
-      id: `inv-${Date.now()}`,
-      invoiceNumber: invNumber,
-      description: invDesc,
-      total: invTotal,
-      installmentsCount: invInstallments,
-      downPaymentPercent: invDownPaymentPercent,
-      status: "pending"
-    });
-    // Reset fields
-    setInvNumber(`FAC-2026-0${Math.floor(Math.random() * 900 + 100)}`);
-    setInvDesc("Venta de tienda Fast Pay");
-    alert(`¡Factura ${invNumber} generada y enviada a terminal de simulación!`);
   };
 
   const handleWithdrawPayout = () => {
@@ -420,112 +376,6 @@ export default function MerchantRegistrationDrawer({
                       </button>
                     </form>
                   </motion.div>
-
-                  {/* Active merchant terminal - only shown when registered */}
-                  {creditAccount.isMerchantModeActive && (
-                    <div className="space-y-6">
-                      
-                      {/* Active profile card */}
-                      <div className="bg-gradient-to-tr from-[#2a1366] to-[#772cfc] text-white p-5 rounded-2xl text-left shadow-sm justify-between flex items-center relative overflow-hidden">
-                        <div>
-                          <span className="text-[9px] font-black uppercase text-indigo-300 tracking-wider">Comercio Activo Autorizado</span>
-                          <h4 className="text-lg font-black mt-1 leading-tight">{creditAccount.merchantStoreName}</h4>
-                          <p className="text-[10px] text-indigo-200 font-semibold mt-0.5">RTN: {creditAccount.merchantRtn} • {creditAccount.merchantCategory}</p>
-                        </div>
-                        <div className="bg-white/10 p-2.5 rounded-full shrink-0">
-                          <ShieldCheck className="w-6 h-6 text-emerald-400" />
-                        </div>
-                      </div>
-
-                      {/* Manual POS Invoice Terminal */}
-                      <div className="p-5 bg-white border border-[#F5F5F7] rounded-2xl text-left shadow-xs space-y-4">
-                        <div className="flex items-center gap-1.5 text-[#2a1366]">
-                          <FileText className="w-5 h-5 text-[#772cfc]" />
-                          <h4 className="text-xs font-black uppercase tracking-wider">Generador de Cuotas QR / Terminal de Ventas</h4>
-                        </div>
-                        <p className="text-[10.5px] text-[#484551] leading-relaxed">
-                          Ingresa los datos para generar una compra y simular el procesamiento de planes Fast Pay en tu caja registrada física.
-                        </p>
-
-                        <form onSubmit={handleCreateInvoiceSubmit} className="space-y-3.5 text-xs">
-                          <div className="grid grid-cols-2 gap-2.5">
-                            <div>
-                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Clave de Factura</label>
-                              <input
-                                type="text"
-                                required
-                                value={invNumber}
-                                onChange={(e) => setInvNumber(e.target.value)}
-                                className="w-full p-2 border border-gray-200 rounded-lg text-xs"
-                              />
-                            </div>
-                            <div>
-                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Monto de Venta (Lps.)</label>
-                              <input
-                                type="number"
-                                required
-                                value={invTotal}
-                                onChange={(e) => setInvTotal(parseFloat(e.target.value) || 0)}
-                                className="w-full p-2 border border-gray-200 rounded-lg text-xs"
-                                min="100"
-                                max="15000"
-                              />
-                            </div>
-                          </div>
-
-                          <div>
-                            <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Descripción del Artículo</label>
-                            <input
-                              type="text"
-                              required
-                              value={invDesc}
-                              onChange={(e) => setInvDesc(e.target.value)}
-                              className="w-full p-2 border border-gray-200 rounded-lg text-xs"
-                              placeholder="Ej. iPhone 13 Pro Max"
-                            />
-                          </div>
-
-                          <div className="grid grid-cols-2 gap-2.5">
-                            <div>
-                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Planes de Pago</label>
-                              <select 
-                                value={invInstallments} 
-                                onChange={(e) => setInvInstallments(parseInt(e.target.value))}
-                                className="w-full p-2 border border-gray-200 rounded-lg text-xs bg-white"
-                              >
-                                <option value={2}>2 Pagos (Monto menor Lps. 1,000)</option>
-                                <option value={4}>4 Pagos (Hasta Lps. 5,000)</option>
-                                <option value={6}>6 Pagos (Hasta Lps. 10,000)</option>
-                                <option value={8}>8 Pagos (Hasta Lps. 15,000)</option>
-                              </select>
-                            </div>
-
-                            <div>
-                              <label className="block text-[9px] font-bold text-[#484551] uppercase mb-1">Porcentaje Inicial</label>
-                              <select 
-                                value={invDownPaymentPercent} 
-                                onChange={(e) => setInvDownPaymentPercent(parseInt(e.target.value))}
-                                className="w-full p-2 border border-gray-200 rounded-lg text-xs bg-white"
-                              >
-                                <option value={10}>10% Inicial</option>
-                                <option value={20}>20% Inicial</option>
-                                <option value={30}>30% Inicial</option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <button
-                            type="submit"
-                            className="w-full py-2.5 bg-[#772cfc] hover:bg-[#6020ce] text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
-                          >
-                            <Send className="w-4 h-4" />
-                            Simular Cobro en Tienda Aliada
-                          </button>
-                        </form>
-                      </div>
-
-                    </div>
-                  )}
                 </>
               )}
 

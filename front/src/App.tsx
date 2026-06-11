@@ -811,8 +811,6 @@ export default function App() {
         onRegisterUser={handleRegisterUser}
         onUpdateMerchantState={handleUpdateMerchantState}
         onSimulateLatePayment={handleSimulateLatePayment}
-        onAddMerchantProduct={handleAddMerchantProduct}
-        onCreateInvoice={handleCreateInvoice}
         onPayInvoice={handlePayPendingInvoice}
         onToggleAutopay={handleToggleAutopay}
         isOpen={isSimulatorOpen}

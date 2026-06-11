@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { 
-  X, ShieldCheck, RefreshCw, Laptop
+  X, ShieldCheck, Laptop
 } from "lucide-react";
 import { MockCreditAccount } from "../types";
 import { motion, AnimatePresence } from "motion/react";
@@ -8,7 +8,6 @@ import logo from "../assets/logo.png";
 
 interface MerchantRegistrationDrawerProps {
   creditAccount: MockCreditAccount;
-  onResetAccount: () => void;
   onUpdateMerchantState: (fields: Partial<MockCreditAccount>) => void;
   isOpen: boolean;
   onClose: () => void;
@@ -16,7 +15,6 @@ interface MerchantRegistrationDrawerProps {
 
 export default function MerchantRegistrationDrawer({
   creditAccount,
-  onResetAccount,
   onUpdateMerchantState,
   isOpen,
   onClose,
@@ -96,13 +94,6 @@ export default function MerchantRegistrationDrawer({
               </div>
               
               <div className="flex items-center gap-2">
-                <button
-                  onClick={onResetAccount}
-                  title="Reiniciar simulador"
-                  className="p-2 hover:bg-white/10 rounded-lg text-white/80 transition-colors"
-                >
-                  <RefreshCw className="w-4 h-4" />
-                </button>
                 <button
                   onClick={onClose}
                   className="p-1.5 hover:bg-white/10 rounded-full text-white/80 transition-colors cursor-pointer"

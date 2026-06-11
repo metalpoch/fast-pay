@@ -805,7 +805,6 @@ export default function App() {
       {/* Drawer de Registro de Comercios Aliados */}
       <MerchantRegistrationDrawer
         creditAccount={account}
-        onResetAccount={handleResetAccount}
         onUpdateMerchantState={handleUpdateMerchantState}
         isOpen={isSimulatorOpen}
         onClose={() => setIsSimulatorOpen(false)}

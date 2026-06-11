@@ -8,7 +8,7 @@ import CreditCalculator from "./components/CreditCalculator";
 import PartnerSection from "./components/PartnerSection";
 import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
-import SimulatorDashboard from "./components/SimulatorDashboard";
+import MerchantRegistrationDrawer from "./components/MerchantRegistrationDrawer";
 import RegistrationModal from "./components/RegistrationModal";
 import HondurasFlag from "./components/HondurasFlag";
 import { MockCreditAccount, Product, ActiveCuota, InstallmentBreakdown, MerchantInvoice } from "./types";
@@ -802,8 +802,8 @@ export default function App() {
         triggerNotification={triggerNotification}
       />
 
-      {/* The slide drawer simulator panel representing Fast Pay Smartphone App */}
-      <SimulatorDashboard
+      {/* Drawer de Registro de Comercios Aliados */}
+      <MerchantRegistrationDrawer
         creditAccount={account}
         onPayInstallment={handlePayInstallment}
         onIncreaseLimit={handleIncreaseLimit}

@@ -8,7 +8,7 @@ import { MockCreditAccount, MerchantInvoice } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../assets/logo.png";
 
-interface SimulatorDashboardProps {
+interface MerchantRegistrationDrawerProps {
   creditAccount: MockCreditAccount;
   onPayInstallment: (cuotaId: string, installmentNumber: number) => void;
   onIncreaseLimit: () => void;
@@ -26,7 +26,7 @@ interface SimulatorDashboardProps {
   onTabChange?: (tab: "merchant" | "payouts") => void;
 }
 
-export default function SimulatorDashboard({
+export default function MerchantRegistrationDrawer({
   creditAccount,
   onResetAccount,
   onUpdateMerchantState,
@@ -36,7 +36,7 @@ export default function SimulatorDashboard({
   onClose,
   activeTab: controlledActiveTab,
   onTabChange,
-}: SimulatorDashboardProps) {
+}: MerchantRegistrationDrawerProps) {
   const [localActiveTab, setLocalActiveTab] = useState<"merchant" | "payouts">("merchant");
   const activeTab = controlledActiveTab !== undefined ? controlledActiveTab : localActiveTab;
   const setActiveTab = onTabChange !== undefined ? onTabChange : setLocalActiveTab;
@@ -216,213 +216,213 @@ export default function SimulatorDashboard({
               {/* MERCHANT MANAGER PANEL */}
               {activeTab === "merchant" && (
                 <>
-                  {/* CASE A: UNREGISTERED MERCHANT FORM */}
-                  {!creditAccount.isMerchantModeActive ? (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="bg-white rounded-[24px] border border-[#F5F5F7] p-6 text-left shadow-sm space-y-4"
-                    >
-                      <div className="flex items-center gap-2 text-[#772cfc] mb-1">
-                        <Laptop className="w-5 h-5" />
-                        <h4 className="text-sm font-extrabold uppercase tracking-wider">Registrar mi Comercio (RTN)</h4>
-                      </div>
-                      <p className="text-xs text-[#484551] leading-relaxed">
-                        Cualquier comerciante con RTN en Honduras puede registrarse en Fast Pay para vender más. Tú cobras el 100% por adelantado libre de riesgo de impagos.
-                      </p>
+                  {/* MERCHANT REGISTRATION FORM - Always visible */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white rounded-[24px] border border-[#F5F5F7] p-6 text-left shadow-sm space-y-4"
+                  >
+                    <div className="flex items-center gap-2 text-[#772cfc] mb-1">
+                      <Laptop className="w-5 h-5" />
+                      <h4 className="text-sm font-extrabold uppercase tracking-wider">Registrar mi Comercio (RTN)</h4>
+                    </div>
+                    <p className="text-xs text-[#484551] leading-relaxed">
+                      Cualquier comerciante con RTN en Honduras puede registrarse en Fast Pay para vender más. Tú cobras el 100% por adelantado libre de riesgo de impagos.
+                    </p>
 
-                      <form onSubmit={handleMerchantRegisterSubmit} className="space-y-4 text-xs">
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Gerente General</label>
-                            <input
-                              type="text"
-                              required
-                              value={merGerenteNombre}
-                              onChange={(e) => setMerGerenteNombre(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Nombre y Apellido"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">DNI del Gerente</label>
-                            <input
-                              type="text"
-                              required
-                              value={merGerenteDni}
-                              onChange={(e) => setMerGerenteDni(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Ej. 0801-1990-12345"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Razón Social</label>
-                            <input
-                              type="text"
-                              required
-                              value={merRazonSocial}
-                              onChange={(e) => setMerRazonSocial(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Razón Social Completa"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Nombre del Negocio</label>
-                            <input
-                              type="text"
-                              required
-                              value={merStoreName}
-                              onChange={(e) => setMerStoreName(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Ej. Fast Pay Store"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">RTN de la Empresa</label>
-                            <input
-                              type="text"
-                              required
-                              value={merRtn}
-                              onChange={(e) => setMerRtn(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="14 dígitos"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Rubro de la Empresa</label>
-                            <select
-                              value={merCategory}
-                              onChange={(e) => setMerCategory(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc] bg-white text-xs"
-                            >
-                              <option>Moda</option>
-                              <option>Niños y Bebés</option>
-                              <option>Hogar y Jardín</option>
-                              <option>Salud y Belleza</option>
-                              <option>Tecnología</option>
-                              <option>Viajes y Entretenimiento</option>
-                              <option>Otros</option>
-                            </select>
-                          </div>
-                        </div>
-
+                    <form onSubmit={handleMerchantRegisterSubmit} className="space-y-4 text-xs">
+                      <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Ubicación Exacta de la Empresa</label>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Gerente General</label>
                           <input
                             type="text"
                             required
-                            value={merUbicacion}
-                            onChange={(e) => setMerUbicacion(e.target.value)}
+                            value={merGerenteNombre}
+                            onChange={(e) => setMerGerenteNombre(e.target.value)}
                             className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                            placeholder="Ubicación física"
+                            placeholder="Nombre y Apellido"
                           />
                         </div>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">WhatsApp / Contacto</label>
-                            <input
-                              type="text"
-                              required
-                              value={merPhone}
-                              onChange={(e) => setMerPhone(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="+504 9999-0000"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Correo Electrónico</label>
-                            <input
-                              type="email"
-                              required
-                              value={merEmail}
-                              onChange={(e) => setMerEmail(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="correo@empresa.hn"
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">DNI del Gerente</label>
+                          <input
+                            type="text"
+                            required
+                            value={merGerenteDni}
+                            onChange={(e) => setMerGerenteDni(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="Ej. 0801-1990-12345"
+                          />
                         </div>
+                      </div>
 
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Instagram o Redes</label>
-                            <input
-                              type="text"
-                              required
-                              value={merSocials}
-                              onChange={(e) => setMerSocials(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="@negocio_hn"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Titular de Cuenta Bancaria</label>
-                            <input
-                              type="text"
-                              required
-                              value={merBankAccountHolder}
-                              onChange={(e) => setMerBankAccountHolder(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Nombre en el banco"
-                            />
-                          </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Razón Social</label>
+                          <input
+                            type="text"
+                            required
+                            value={merRazonSocial}
+                            onChange={(e) => setMerRazonSocial(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="Razón Social Completa"
+                          />
                         </div>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Banco para Liquidación</label>
-                            <select
-                              value={merBank}
-                              onChange={(e) => setMerBank(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc] bg-white text-xs"
-                            >
-                              <option>Banco Atlántida</option>
-                              <option>BAC Credomatic</option>
-                              <option>Ficohsa</option>
-                              <option>Banpais</option>
-                              <option>Occidente</option>
-                            </select>
-                          </div>
-                          <div>
-                            <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Número de Cuenta</label>
-                            <input
-                              type="text"
-                              required
-                              value={merBankAccount}
-                              onChange={(e) => setMerBankAccount(e.target.value)}
-                              className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
-                              placeholder="Ej. 110200..."
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Nombre del Negocio</label>
+                          <input
+                            type="text"
+                            required
+                            value={merStoreName}
+                            onChange={(e) => setMerStoreName(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="Ej. Fast Pay Store"
+                          />
                         </div>
+                      </div>
 
-                        {/* High-Risk category restriction info banner */}
-                        <div className="p-3 bg-red-50 text-[10.5px] border border-red-100 rounded-xl text-red-800 leading-relaxed space-y-1">
-                          <p className="font-extrabold flex items-center gap-1">
-                            ⚠️ Restricción de Rubros (Bajo Riesgo Compliance)
-                          </p>
-                          <p>
-                            No se permiten negocios informales de alto riesgo ni compras a largo plazo de alto costo (terrenos, vehículos, pulperías, alcohol, o servicios médicos).
-                          </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">RTN de la Empresa</label>
+                          <input
+                            type="text"
+                            required
+                            value={merRtn}
+                            onChange={(e) => setMerRtn(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="14 dígitos"
+                          />
                         </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Rubro de la Empresa</label>
+                          <select
+                            value={merCategory}
+                            onChange={(e) => setMerCategory(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc] bg-white text-xs"
+                          >
+                            <option>Moda</option>
+                            <option>Niños y Bebés</option>
+                            <option>Hogar y Jardín</option>
+                            <option>Salud y Belleza</option>
+                            <option>Tecnología</option>
+                            <option>Viajes y Entretenimiento</option>
+                            <option>Otros</option>
+                          </select>
+                        </div>
+                      </div>
 
-                        <button
-                          type="submit"
-                          className="w-full py-3 bg-[#2a1366] hover:bg-[#1f0e4b] text-white rounded-xl font-bold transition-all text-xs flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
-                        >
-                          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                          Unirse como Comercio Aliado
-                        </button>
-                      </form>
-                    </motion.div>
-                  ) : (
-                    /* CASE B: REGISTERED ACTIVE MERCHANT PORTAL & OPERATIONS TERMINAL */
+                      <div>
+                        <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Ubicación Exacta de la Empresa</label>
+                        <input
+                          type="text"
+                          required
+                          value={merUbicacion}
+                          onChange={(e) => setMerUbicacion(e.target.value)}
+                          className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                          placeholder="Ubicación física"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">WhatsApp / Contacto</label>
+                          <input
+                            type="text"
+                            required
+                            value={merPhone}
+                            onChange={(e) => setMerPhone(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="+504 9999-0000"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Correo Electrónico</label>
+                          <input
+                            type="email"
+                            required
+                            value={merEmail}
+                            onChange={(e) => setMerEmail(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="correo@empresa.hn"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Instagram o Redes</label>
+                          <input
+                            type="text"
+                            required
+                            value={merSocials}
+                            onChange={(e) => setMerSocials(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="@negocio_hn"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Titular de Cuenta Bancaria</label>
+                          <input
+                            type="text"
+                            required
+                            value={merBankAccountHolder}
+                            onChange={(e) => setMerBankAccountHolder(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="Nombre en el banco"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Banco para Liquidación</label>
+                          <select
+                            value={merBank}
+                            onChange={(e) => setMerBank(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc] bg-white text-xs"
+                          >
+                            <option>Banco Atlántida</option>
+                            <option>BAC Credomatic</option>
+                            <option>Ficohsa</option>
+                            <option>Banpais</option>
+                            <option>Occidente</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-[#484551] uppercase mb-1">Número de Cuenta</label>
+                          <input
+                            type="text"
+                            required
+                            value={merBankAccount}
+                            onChange={(e) => setMerBankAccount(e.target.value)}
+                            className="w-full p-2 rounded-lg border border-gray-200 focus:outline-[#772cfc]"
+                            placeholder="Ej. 110200..."
+                          />
+                        </div>
+                      </div>
+
+                      {/* High-Risk category restriction info banner */}
+                      <div className="p-3 bg-red-50 text-[10.5px] border border-red-100 rounded-xl text-red-800 leading-relaxed space-y-1">
+                        <p className="font-extrabold flex items-center gap-1">
+                          ⚠️ Restricción de Rubros (Bajo Riesgo Compliance)
+                        </p>
+                        <p>
+                          No se permiten negocios informales de alto riesgo ni compras a largo plazo de alto costo (terrenos, vehículos, pulperías, alcohol, o servicios médicos).
+                        </p>
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="w-full py-3 bg-[#2a1366] hover:bg-[#1f0e4b] text-white rounded-xl font-bold transition-all text-xs flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                      >
+                        <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                        Unirse como Comercio Aliado
+                      </button>
+                    </form>
+                  </motion.div>
+
+                  {/* Active merchant terminal - only shown when registered */}
+                  {creditAccount.isMerchantModeActive && (
                     <div className="space-y-6">
                       
                       {/* Active profile card */}

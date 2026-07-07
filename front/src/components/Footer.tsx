@@ -45,8 +45,8 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Privacidad</h4>
               <ul className="space-y-2 text-xs">
-                <li><a href="#privacy" className="hover:text-[#772cfc] transition-colors font-semibold">Política de Privacidad</a></li>
-                <li><a href="#cookies" className="hover:text-[#772cfc] transition-colors font-semibold">Uso de Cookies</a></li>
+                <li><a href="/legal/FastPay_Politica_Privacidad.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Política de Privacidad</a></li>
+                <li><a href="/legal/FastPay_Politica_Cookies.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Uso de Cookies</a></li>
               </ul>
             </div>
 
@@ -54,8 +54,9 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Legal</h4>
               <ul className="space-y-2 text-xs">
-                <li><a href="#terms" className="hover:text-[#772cfc] transition-colors font-semibold">Términos de Servicio</a></li>
-                <li><a href="#rules" className="hover:text-[#772cfc] transition-colors font-semibold">Cláusulas del Contrato</a></li>
+                <li><a href="/legal/FastPay_Terminos_Servicio.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Términos de Servicio</a></li>
+                <li><a href="/legal/FastPay_Contrato_Usuario.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Contrato de Usuario</a></li>
+                <li><a href="/legal/FastPay_Contrato_Comercio.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Contrato de Comercio</a></li>
               </ul>
             </div>
 

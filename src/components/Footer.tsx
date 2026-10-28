@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Smartphone, Mail, PhoneCall, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import logo from "../assets/logo.png";
 
 interface FooterProps {
@@ -16,7 +15,7 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
           
           {/* Brand Col */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="md:col-span-6 space-y-4">
             <div 
               onClick={() => onScrollTo("hero")}
               className="flex items-center gap-3 cursor-pointer group w-fit"
@@ -39,28 +38,9 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
           </div>
 
           {/* Directory Links Col */}
-          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            
-            {/* Column 1 - Privacidad */}
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Privacidad</h4>
-              <ul className="space-y-2 text-xs">
-                <li><a href="/legal/FastPay_Politica_Privacidad.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Política de Privacidad</a></li>
-                <li><a href="/legal/FastPay_Politica_Cookies.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Uso de Cookies</a></li>
-              </ul>
-            </div>
+          <div className="md:col-span-6 grid grid-cols-2 gap-8">
 
-            {/* Column 2 - Legal */}
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Legal</h4>
-              <ul className="space-y-2 text-xs">
-                <li><a href="/legal/FastPay_Terminos_Servicio.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Términos de Servicio</a></li>
-                <li><a href="/legal/FastPay_Contrato_Usuario.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Contrato de Usuario</a></li>
-                <li><a href="/legal/FastPay_Contrato_Comercio.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[#772cfc] transition-colors font-semibold">Contrato de Comercio</a></li>
-              </ul>
-            </div>
-
-            {/* Column 3 - Ayuda */}
+            {/* Column 1 - Ayuda */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Soporte</h4>
               <ul className="space-y-2 text-xs">
@@ -69,7 +49,7 @@ export default function Footer({ onScrollTo, onOpenSimulator }: FooterProps) {
               </ul>
             </div>
 
-            {/* Column 4 - Compañía */}
+            {/* Column 2 - Compañía */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold text-[#2a1366] tracking-wide uppercase">Compañía</h4>
               <ul className="space-y-2 text-xs">

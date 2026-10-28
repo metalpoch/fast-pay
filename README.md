@@ -31,7 +31,6 @@ Fast Pay es una aplicación web de una sola página (SPA) que presenta el produc
 - **Panel de comercio** con facturas, saldo disponible, cuotas por recibir y retiros.
 - **Persistencia local** del estado de la cuenta entre recargas.
 - **Animaciones** con Motion, iconografía con Lucide y estilos con Tailwind CSS 4.
-- **Documentos legales** descargables en PDF desde el footer.
 
 ## Stack
 
@@ -85,8 +84,7 @@ npm run dev
 ```text
 .
 ├── public/
-│   ├── favicon.png
-│   └── legal/                     # Contratos y políticas en PDF
+│   └── favicon.png
 ├── src/
 │   ├── assets/                    # Imágenes y logo procesados por Vite
 │   ├── components/
@@ -145,19 +143,6 @@ const apiUrl = import.meta.env.VITE_API_URL;
 ```
 
 Recuerda que cualquier variable con prefijo `VITE_` queda expuesta en el bundle del navegador.
-
-## Documentos legales
-
-Los PDF se sirven desde `public/legal/` y están enlazados en el footer:
-
-- `FastPay_Politica_Privacidad.pdf`
-- `FastPay_Politica_Cookies.pdf`
-- `FastPay_Terminos_Servicio.pdf`
-- `FastPay_Contrato_Usuario.pdf`
-- `FastPay_Contrato_Comercio.pdf`
-
-Los enlaces usan rutas absolutas (`/legal/...`), por lo que el sitio debe publicarse en la raíz de
-un dominio o configurar la base correspondiente en el hosting.
 
 ## Despliegue
 

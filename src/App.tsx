@@ -54,7 +54,6 @@ const INITIAL_ACCOUNT: MockCreditAccount = {
 export default function App() {
   const [account, setAccount] = useState<MockCreditAccount>(INITIAL_ACCOUNT);
   const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
-  const [simulatorTab, setSimulatorTab] = useState<"merchant" | "payouts">("merchant");
   const [activeNotification, setActiveNotification] = useState<{
     id: string;
     title: string;
@@ -113,7 +112,6 @@ export default function App() {
       isMerchantModeActive: true
     };
     saveAccount(updated);
-    setSimulatorTab("merchant");
     setIsSimulatorOpen(true); // Open drawer to show the switched tab
     triggerNotification(
       "Portal de Comercios",
@@ -605,7 +603,6 @@ export default function App() {
       {/* Dynamic Header with layout toggling */}
       <Navbar
         onOpenSimulator={() => {
-          setSimulatorTab("merchant");
           setIsSimulatorOpen(true);
         }}
         onScrollTo={scrollToSection}
@@ -713,7 +710,6 @@ export default function App() {
         {/* Landing Hero Screen */}
         <Hero
           onOpenSimulator={() => {
-            setSimulatorTab("wallet");
             setIsSimulatorOpen(true);
           }}
           onScrollTo={scrollToSection}
@@ -739,7 +735,6 @@ export default function App() {
           availableLimit={account.availableLimit}
           isRegistered={account.isRegistered}
           onOpenSimulator={() => {
-            setSimulatorTab("merchant");
             setIsSimulatorOpen(true);
           }}
         />
@@ -750,7 +745,6 @@ export default function App() {
         {/* Partner Section dark backdrop promotion */}
         <PartnerSection
           onJoinAsPartner={() => {
-            setSimulatorTab("merchant");
             setIsSimulatorOpen(true);
             triggerNotification(
               "Registrar Comercio (RTN)",
@@ -765,7 +759,6 @@ export default function App() {
       <Footer
         onScrollTo={scrollToSection}
         onOpenSimulator={() => {
-          setSimulatorTab("merchant");
           setIsSimulatorOpen(true);
         }}
       />

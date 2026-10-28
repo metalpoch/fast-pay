@@ -1,16 +1,16 @@
 import { AlliedStore } from "./types";
-import store1 from "../assets/store1.avif";
-import store2 from "../assets/store2.avif";
-import store3 from "../assets/store3.avif";
-import store4 from "../assets/store4.avif";
-import store5 from "../assets/store5.avif";
-import store6 from "../assets/store6.avif";
-import store7 from "../assets/store7.avif";
-import store8 from "../assets/store8.avif";
-import store9 from "../assets/store9.avif";
-import store10 from "../assets/store10.avif";
-import store11 from "../assets/store11.avif";
-import store12 from "../assets/store12.avif";
+import store1 from "./assets/store1.avif";
+import store2 from "./assets/store2.avif";
+import store3 from "./assets/store3.avif";
+import store4 from "./assets/store4.avif";
+import store5 from "./assets/store5.avif";
+import store6 from "./assets/store6.avif";
+import store7 from "./assets/store7.avif";
+import store8 from "./assets/store8.avif";
+import store9 from "./assets/store9.avif";
+import store10 from "./assets/store10.avif";
+import store11 from "./assets/store11.avif";
+import store12 from "./assets/store12.avif";
 
 export const ALLIED_STORES: AlliedStore[] = [
   {
